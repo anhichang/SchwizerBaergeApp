@@ -1,2 +1,2 @@
 # Can ignore all directories and files in "target".
-./target/
+/target/
