@@ -15,8 +15,8 @@ public class AppStarter extends Application {
 
 		Scene scene = new Scene(rootPanel);
 
-//		String stylesheet = getClass().getResource("style.css").toExternalForm();
-//		scene.getStylesheets().add(stylesheet);
+    	String stylesheet = getClass().getResource("style.css").toExternalForm();
+		scene.getStylesheets().add(stylesheet);
 
 		primaryStage.titleProperty().bind(model.applicationTitleProperty());
 		primaryStage.setScene(scene);
