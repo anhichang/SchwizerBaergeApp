@@ -1,4 +1,4 @@
-package ch.fhnw.oop;
+
 
 import javafx.application.Application;
 import javafx.scene.Parent;

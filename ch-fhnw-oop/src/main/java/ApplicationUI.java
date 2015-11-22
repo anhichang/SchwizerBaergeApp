@@ -1,4 +1,3 @@
-package ch.fhnw.oop;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;

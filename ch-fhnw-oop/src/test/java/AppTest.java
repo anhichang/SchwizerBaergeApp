@@ -1,4 +1,4 @@
-package ch.fhnw.oop;
+
 
 import junit.framework.Test;
 import junit.framework.TestCase;
