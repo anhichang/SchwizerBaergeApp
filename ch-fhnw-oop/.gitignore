@@ -1,5 +1,0 @@
-# Can ignore all directories and files in "target".
-/target/
-
-# ignore a specific file
-/ch-fhnw-oop.iml
