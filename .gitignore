@@ -1,6 +1,6 @@
 # Can ignore all directories and files in "target".
 /target/
-.idea/
+/.idea/
 /out/
 
 # ignore a specific file
