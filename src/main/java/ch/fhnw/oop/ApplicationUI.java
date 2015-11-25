@@ -1,6 +1,7 @@
-
+package ch.fhnw.oop;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+
 
 public class ApplicationUI extends StackPane {
 	private final PresentationModel model;
