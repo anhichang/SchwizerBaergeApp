@@ -1,5 +1,9 @@
 # Can ignore all directories and files in "target".
 /target/
+/.idea/
+/out/
 
 # ignore a specific file
-/ch-fhnw-oop.iml
+/*.iml
+/pom.xml~
+/junit-4.7.jar

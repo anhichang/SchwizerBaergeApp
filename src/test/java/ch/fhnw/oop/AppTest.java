@@ -1,4 +1,4 @@
-
+package ch.fhnw.oop;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -34,5 +34,9 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+    }
+
+    public void testTestApp() throws Exception {
+
     }
 }
