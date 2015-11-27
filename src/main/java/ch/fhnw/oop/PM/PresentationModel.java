@@ -1,5 +1,5 @@
 
-package ch.fhnw.oop;
+package ch.fhnw.oop.PM;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

@@ -1,4 +1,4 @@
-package ch.fhnw.oop;
+package ch.fhnw.oop.PM;
 
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleFloatProperty;
@@ -58,7 +58,7 @@ public class Mountains {
     }
 
     public String infoAsLine(){
-        return String.join(";",
+        return String.join("\t",
                 getBergNr(),
                 getBergName(),
                 Float.toString(getBergHoehe()),
