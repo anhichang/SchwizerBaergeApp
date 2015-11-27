@@ -70,7 +70,7 @@ public class MountainsPM {
     private Path getPath(String fileName, boolean locatedInSameFolder)  {
         try {
             if(!locatedInSameFolder) {
-                fileName = "data/" + FILE_NAME;
+                fileName = "/" + FILE_NAME;
             }
             return Paths.get(getClass().getResource(fileName).toURI());
         } catch (URISyntaxException e) {
@@ -86,7 +86,7 @@ public class MountainsPM {
         return applicationTitle;
     }
 
-    public ObservableList<Mountains> getResulate() {
+    public ObservableList<Mountains> getResultate() {
         return mountains;
     }
 
