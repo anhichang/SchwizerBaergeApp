@@ -84,8 +84,8 @@ public class AppStarter extends Application {
         grid.add(hbBtn, 1, 6);
 
 
-		//String stylesheet = getClass().getResource("style.css").toExternalForm();
-		//scene.getStylesheets().add(stylesheet);
+		String stylesheet = getClass().getResource("style.css").toExternalForm();
+		scene.getStylesheets().add(stylesheet);
 
 		//primaryStage.titleProperty().bind(model.applicationTitleProperty());
 		primaryStage.setScene(scene);
