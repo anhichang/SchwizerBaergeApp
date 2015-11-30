@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -109,6 +110,22 @@ public class AppStarter extends Application {
 
                   Label unterschrift = new Label("Bild Unterschrift:");
                   grid.add(unterschrift, 0, 6);
+
+            /*SplitPane sp = new SplitPane();
+            final StackPane sp1 = new StackPane();
+            sp1.getChildren().add(unterschrift);
+            sp1.getChildren().add(gebiet);
+            final StackPane sp2 = new StackPane();
+            sp2.getChildren().add(new Button("Button Two"));
+            final StackPane sp3 = new StackPane();
+            sp3.getChildren().add(new Button("Button Three"));
+            sp.getItems().addAll(sp1, sp2, sp3);
+            sp.setDividerPositions(0.3f, 0.6f, 0.9f);*/
+
+            SplitPane sp = new SplitPane();
+            //sp.getItems().addAll(name, dominanz, km, type, kanton);
+            //sp.setDividerPositions(0.3f, 0.6f, 0.9f, 1.2f, 10.0f);
+            grid.add(sp, 4, 0, 2, 50);
 
 
         Button btn = new Button("Save");
