@@ -3,6 +3,8 @@ package ch.fhnw.oop;
 
 import ch.fhnw.oop.PM.PresentationModel;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,8 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -41,7 +41,7 @@ public class AppStarter extends Application {
 		grid.setPadding(new Insets(25, 25, 25, 25));
 
         Text scenetitle = new Text("Alphubel");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+
         grid.add(scenetitle, 0, 0, 2, 1);
 
         Label name = new Label("Name:");
@@ -74,14 +74,64 @@ public class AppStarter extends Application {
         TextField kantonTextField = new TextField();
         grid.add(kantonTextField, 1, 5);
 
+            TextField höheTextField = new TextField();
+            grid.add(höheTextField, 3, 1);
 
-        Scene scene = new Scene(grid, 1500, 1000);
+            Label höhe = new Label("Höhe:");
+            grid.add(höhe, 2, 1);
+
+            TextField schartenTextField = new TextField();
+            grid.add(schartenTextField, 3, 2);
+
+            Label scharten = new Label("Scharten...:");
+            grid.add(scharten, 2, 2);
+
+            TextField mbisTextField = new TextField();
+            grid.add(mbisTextField, 3, 3);
+
+            Label mbis = new Label("m bis");
+            grid.add(mbis, 2, 3);
+
+            TextField regionTextField = new TextField();
+            grid.add(regionTextField, 3, 4);
+
+            Label region = new Label("Region:");
+            grid.add(region, 2, 4);
+
+            TextField gebietTextField = new TextField();
+            grid.add(gebietTextField, 3, 5);
+
+            Label gebiet = new Label("Gebiet:");
+            grid.add(gebiet, 2, 5);
+
+                  TextField unterschriftTextField = new TextField();
+                  grid.add(unterschriftTextField, 1, 6, 3, 1);
+
+                  Label unterschrift = new Label("Bild Unterschrift:");
+                  grid.add(unterschrift, 0, 6);
+
 
         Button btn = new Button("Save");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 6);
+        grid.add(hbBtn, 3, 7);
+
+        final Text actiontarget = new Text();
+        grid.add(actiontarget, 1, 9);
+
+            btn.setOnAction(new EventHandler<ActionEvent>() {         //anzeigen der Statusmeldung
+
+                    @Override
+                    public void handle(ActionEvent e) {
+                            actiontarget.setText("Änderungen gespeichert");
+                    }
+            });
+
+
+        Scene scene = new Scene(grid, 1500, 1000);
+
+
 
 
 		String stylesheet = getClass().getResource("style.css").toExternalForm();
@@ -89,6 +139,10 @@ public class AppStarter extends Application {
 
 		//primaryStage.titleProperty().bind(model.applicationTitleProperty());
 		primaryStage.setScene(scene);
+
+        scenetitle.setId("title");
+
+        actiontarget.setId("actiontarget");
 
 		primaryStage.show();
 	}
