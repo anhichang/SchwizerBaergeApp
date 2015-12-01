@@ -5,7 +5,6 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +22,7 @@ public class MountainsPM {
 
     public static final String FILE_NAME = "mountains.csv";
 
-    private static final String TAB = "\\t";
+    private static final String SEMICOLON = ";";
 
     private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
 
@@ -54,8 +53,8 @@ public class MountainsPM {
 
     private List<Mountains> readFromFile() {
         try(Stream<String> stream = getStreamOfLines(FILE_NAME)){
-            return stream.skip(1)
-                    .map(s -> new Mountains(s.split(TAB))).collect(Collectors.toList());
+            return stream.skip(0)
+                    .map(s -> new Mountains(s.split(SEMICOLON))).collect(Collectors.toList());
         }
     }
 
@@ -70,13 +69,18 @@ public class MountainsPM {
     private Path getPath(String fileName, boolean locatedInSameFolder)  {
         try {
             if(!locatedInSameFolder) {
-                fileName = "/" + FILE_NAME;
+                fileName = "/" + FILE_NAME ;
             }
-            return Paths.get(getClass().getResource(fileName).toURI());
+            else{
+                fileName = "data/" + FILE_NAME ;
+            }
+            return Paths.get(getClass().getClassLoader().getResource(fileName).toURI());
+
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException(e);
         }
     }
+
 
     public String getApplicationTitle() {
         return applicationTitle.get();

@@ -26,7 +26,7 @@ public class Mountains {
     public Mountains(String[] line){
         setBergNr(line[0]);
         setBergName(line[1]);
-        setBergHoehe(Integer.valueOf(line[2]));
+        setBergHoehe(Float.valueOf(line[2]));
         setBergGipfelArt(line[3]);
         setBergGebiet(line[4]);
         setBergKantone(line[5]);
