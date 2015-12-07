@@ -5,7 +5,6 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -70,7 +69,7 @@ public class MountainsPM {
     private Path getPath(String fileName, boolean locatedInSameFolder)  {
         try {
             if(!locatedInSameFolder) {
-                fileName = "/" + FILE_NAME;
+                fileName = "/home/scatman/IdeaProjects/Projekt/SchwizerBaergeApp/resources/data/" + FILE_NAME;
             }
             return Paths.get(getClass().getResource(fileName).toURI());
         } catch (URISyntaxException e) {

@@ -7,13 +7,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,23 +26,24 @@ public class AppStarter extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		PresentationModel model = new PresentationModel();
 
-		//Parent rootPanel = new ApplicationUI(model);
+		Parent rootPanel = new ApplicationUI(model);
 
 		/*Scene scene = new Scene(rootPanel);
-
-    	String stylesheet = getClass().getResource("style.css").toExternalForm();
-		scene.getStylesheets().add(stylesheet);
 
 		primaryStage.titleProperty().bind(model.applicationTitleProperty());
 		primaryStage.setScene(scene);*/
 
         primaryStage.setTitle("Schwitzer Bärge App");
 
+
+
+
+
 		GridPane grid = new GridPane();
-		grid.setAlignment(Pos.CENTER);
+		grid.setAlignment(Pos.BOTTOM_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
-		grid.setPadding(new Insets(25, 25, 25, 25));
+		grid.setPadding(new Insets(25, 100, 25, 25));
 
         Text scenetitle = new Text("Alphubel");
 
@@ -111,21 +115,55 @@ public class AppStarter extends Application {
                   Label unterschrift = new Label("Bild Unterschrift:");
                   grid.add(unterschrift, 0, 6);
 
-            /*SplitPane sp = new SplitPane();
-            final StackPane sp1 = new StackPane();
-            sp1.getChildren().add(unterschrift);
-            sp1.getChildren().add(gebiet);
-            final StackPane sp2 = new StackPane();
-            sp2.getChildren().add(new Button("Button Two"));
-            final StackPane sp3 = new StackPane();
-            sp3.getChildren().add(new Button("Button Three"));
-            sp.getItems().addAll(sp1, sp2, sp3);
-            sp.setDividerPositions(0.3f, 0.6f, 0.9f);*/
+       /* GridPane grid1 = new GridPane();                    //Test 2 GridPanes nebeneinander Positionieren
+        grid1.setAlignment(Pos.BOTTOM_LEFT);
+        grid1.setHgap(10);
+        grid1.setVgap(10);
+        grid1.setPadding(new Insets(25, 25, 25, 25));
 
-            SplitPane sp = new SplitPane();
-            //sp.getItems().addAll(name, dominanz, km, type, kanton);
-            //sp.setDividerPositions(0.3f, 0.6f, 0.9f, 1.2f, 10.0f);
-            grid.add(sp, 4, 0, 2, 50);
+        grid1.add(scenetitle, 0, 0, 2, 1);
+        grid1.add(regionTextField, 3, 4);
+        grid1.add(region, 2, 4);
+        grid1.add(gebietTextField, 3, 5);
+        grid1.add(gebiet, 2, 5);                            //end*/
+
+       // ListView<?> list = new ListView<>();
+
+
+        SplitPane sp = new SplitPane();
+            final StackPane sp1 = new StackPane();
+           /* sp1.getChildren().add(scenetitle);
+            sp1.getChildren().add(name);
+            sp1.getChildren().add(nameTextField);
+            sp1.getChildren().add(dominanz);
+            sp1.getChildren().add(dominanzTextField);
+            sp1.getChildren().add(km);
+            sp1.getChildren().add(kmTextField);
+            sp1.getChildren().add(type);
+            sp1.getChildren().add(typeTextField);
+            sp1.getChildren().add(kanton);
+            sp1.getChildren().add(kantonTextField);
+            sp1.getChildren().add(höhe);
+            sp1.getChildren().add(höheTextField);
+            sp1.getChildren().add(scharten);
+            sp1.getChildren().add(schartenTextField);
+            sp1.getChildren().add(mbis);
+            sp1.getChildren().add(mbisTextField);
+            sp1.getChildren().add(region);
+            sp1.getChildren().add(regionTextField);
+            sp1.getChildren().add(gebiet);
+            sp1.getChildren().add(gebietTextField);
+            sp1.getChildren().add(unterschrift);
+            sp1.getChildren().add(unterschriftTextField);*/
+            final StackPane sp2 = new StackPane();
+            sp2.getChildren().add(grid);
+            sp.getItems().addAll(sp1, sp2);
+            sp.setDividerPositions(0.3f, 0.6f, 0.9f);
+
+           //SplitPane sp = new SplitPane();
+           //sp.getItems().addAll(name, dominanz, km, type, kanton);
+           //sp.setDividerPositions(0.3f, 0.6f, 0.9f, 1.2f, 10.0f);
+           //grid.add(sp, 4, 0, 2, 10);
 
 
         Button btn = new Button("Save");
@@ -145,8 +183,12 @@ public class AppStarter extends Application {
                     }
             });
 
+        BorderPane rootPane = new BorderPane();
+        rootPane.setRight(grid);
+        //rootPane.setLeft(grid1);
 
-        Scene scene = new Scene(grid, 1500, 1000);
+
+        Scene scene = new Scene(rootPane, 1500, 1000);
 
 
 

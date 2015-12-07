@@ -7,8 +7,8 @@ import javafx.beans.property.StringProperty;
  * @author Dieter Holz
  */
 public class PresentationModel {
-	private final StringProperty applicationTitle = new SimpleStringProperty("JavaFX App");
-	private final StringProperty greeting         = new SimpleStringProperty("Hello World!");
+	private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
+	private final StringProperty greeting         = new SimpleStringProperty("Speichere");
 
 	public String getApplicationTitle() {
 		return applicationTitle.get();
