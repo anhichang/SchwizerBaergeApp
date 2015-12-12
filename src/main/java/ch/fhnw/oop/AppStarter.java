@@ -46,6 +46,7 @@ public class AppStarter extends Application {
 		grid.setPadding(new Insets(25, 100, 25, 25));
 
         Text scenetitle = new Text("Alphubel");
+        Text scenetitle1 = new Text("TestIt");
 
         grid.add(scenetitle, 0, 0, 2, 1);
 
@@ -115,13 +116,27 @@ public class AppStarter extends Application {
                   Label unterschrift = new Label("Bild Unterschrift:");
                   grid.add(unterschrift, 0, 6);
 
-       /* GridPane grid1 = new GridPane();                    //Test 2 GridPanes nebeneinander Positionieren
+        GridPane grid1 = new GridPane();                    //Test 2 GridPanes nebeneinander Positionieren
         grid1.setAlignment(Pos.BOTTOM_LEFT);
         grid1.setHgap(10);
         grid1.setVgap(10);
         grid1.setPadding(new Insets(25, 25, 25, 25));
 
-        grid1.add(scenetitle, 0, 0, 2, 1);
+        grid1.add(scenetitle1, 0, 0, 2, 1);
+        grid1.add(nameTextField, 1, 1);
+        grid1.add(name, 0, 1);
+        grid1.add(dominanzTextField, 1, 2);
+        grid1.add(dominanz, 0, 2);
+        grid1.add(kmTextField, 1, 3);
+        grid1.add(km, 0, 3);
+        grid1.add(typeTextField, 1, 4);
+        grid1.add(type, 0, 4);
+        grid1.add(kantonTextField, 1, 5);
+        grid1.add(kanton, 0, 5);
+        grid1.add(höheTextField, 3, 1);
+        grid1.add(höhe, 2, 1);
+        grid1.add(schartenTextField, 3, 2);
+        grid1.add(scharten, 2, 2);
         grid1.add(regionTextField, 3, 4);
         grid1.add(region, 2, 4);
         grid1.add(gebietTextField, 3, 5);
@@ -132,6 +147,8 @@ public class AppStarter extends Application {
 
         SplitPane sp = new SplitPane();
             final StackPane sp1 = new StackPane();
+            sp1.getChildren().add(grid1);
+        //sp1.getChildren().add();
            /* sp1.getChildren().add(scenetitle);
             sp1.getChildren().add(name);
             sp1.getChildren().add(nameTextField);
@@ -158,7 +175,9 @@ public class AppStarter extends Application {
             final StackPane sp2 = new StackPane();
             sp2.getChildren().add(grid);
             sp.getItems().addAll(sp1, sp2);
-            sp.setDividerPositions(0.3f, 0.6f, 0.9f);
+            sp.setDividerPositions(0.3f, 0.6f);
+            grid.add(sp, 4, 0, 2, 10);
+            grid1.add(sp, 4, 0, 2, 10);
 
            //SplitPane sp = new SplitPane();
            //sp.getItems().addAll(name, dominanz, km, type, kanton);
@@ -185,7 +204,7 @@ public class AppStarter extends Application {
 
         BorderPane rootPane = new BorderPane();
         rootPane.setRight(grid);
-        //rootPane.setLeft(grid1);
+        rootPane.setLeft(grid1);
 
 
         Scene scene = new Scene(rootPane, 1500, 1000);
