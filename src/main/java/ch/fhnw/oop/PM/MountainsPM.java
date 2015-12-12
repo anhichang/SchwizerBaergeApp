@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -32,24 +33,23 @@ public class MountainsPM {
         mountains.addAll(readFromFile());
     }
 
-    /*
     public void save() {
         try (BufferedWriter writer = Files.newBufferedWriter(getPath(FILE_NAME, true))) {
-            writer.write("- die Headerzeile");
+            writer.write("bergNr\tBergName\tbergHoehe\tbergGipfelArt\tbergGebiet\tbergKantone\tbergRegion\tbergDominanz\tbergDominanzGipfel\tbergScharte\tbergSchartenGipfel\tBildunterschrift");
             writer.newLine();
-            mountains.stream().forEach(resulat -> {
-                try{
-                    writer.write(mountains.);
+            mountains.stream().forEach(resultat -> {
+                try {
+                    writer.write(resultat.infoAsLine());
                     writer.newLine();
-                } catch (IOException e){
+                } catch (IOException e) {
                     throw new IllegalStateException(e);
                 }
             });
-        } catch (IOException e){
-            throw new IllegalStateException("save faile");
+        } catch (IOException e) {
+            throw new IllegalStateException("save failed");
         }
     }
-    */
+
 
     private List<Mountains> readFromFile() {
         try(Stream<String> stream = getStreamOfLines(FILE_NAME)){
