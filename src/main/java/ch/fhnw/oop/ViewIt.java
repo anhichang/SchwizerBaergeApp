@@ -1,19 +1,17 @@
 package ch.fhnw.oop;
 
-import ch.fhnw.oop.PM.MountainsPM;
-
 /**
  * Created by scatman on 12.12.15.
  */
-public interface ViewIt {
+public interface ViewIt<T> {
 
-    MountainsPM getPresentationModel();
+    T getPresentationModel();
 
     default void init() {
         initializeControls();
         layoutControls();
         addEventHandlers();
-        addValueChangedListeners();
+        //addValueChangedListeners();
         addBindings();
     }
 

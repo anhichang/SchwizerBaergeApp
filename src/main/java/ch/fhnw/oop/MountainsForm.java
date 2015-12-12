@@ -1,7 +1,6 @@
 package ch.fhnw.oop;
 
 
-import ch.fhnw.oop.PM.Mountains;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,7 +14,7 @@ import javafx.scene.text.Text;
 /**
  * Created by scatman on 12.12.15.
  */
-public class MountainsForm extends GridPane implements ViewIt<Mountains>{
+public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
 
     private final MountainsPM mountain;
 
