@@ -23,7 +23,7 @@ public class AppStarter extends Application {
         String stylesheet = getClass().getResource("style.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
 
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
 
         primaryStage.show();
     }
