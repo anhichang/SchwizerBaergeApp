@@ -21,9 +21,9 @@ public class MountainsPMTest extends TestCase {
 
         //then
         assertTrue(mountains.size()>1);
-  //      assertEquals("Albis", mountains.get(0).getBergName());
+        assertEquals("Albis, Bürglen", mountains.get(0).getBergName());
 
-    //    assertEquals("Zumsteinspitze", mountains.get(mountains.size()-1).getBergName());
+        assertEquals("Zumsteinspitze", mountains.get(mountains.size()-1).getBergName());
 
     }
 }

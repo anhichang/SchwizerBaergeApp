@@ -7,7 +7,7 @@ import javafx.scene.layout.StackPane;
 
 
 public class ApplicationUI extends StackPane {
-	private final MountainsPM model;
+	private final MountainsPMgi model;
 	private MountainsForm mountainsForm;
 	private Button button;
 
