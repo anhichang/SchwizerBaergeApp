@@ -1,15 +1,17 @@
 package ch.fhnw.oop;
+
+import ch.fhnw.oop.PM.MountainsPM;
 import ch.fhnw.oop.PM.PresentationModel;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
 
 public class ApplicationUI extends StackPane {
-	private final PresentationModel model;
-
+	private final MountainsPM model;
+	private MountainsForm mountainsForm;
 	private Button button;
 
-	public ApplicationUI(PresentationModel model) {
+	public ApplicationUI(MountainsPM model) {
 		this.model = model;
 		initializeControls();
 		layoutControls();
@@ -18,7 +20,11 @@ public class ApplicationUI extends StackPane {
 		addBindings();
 	}
 
+	public MountainsPM getPresentations Model() {
+		return model;
+	}
 	private void initializeControls() {
+		mountainsForm = new MountainsForm(model);
 		button = new Button();
 	}
 
