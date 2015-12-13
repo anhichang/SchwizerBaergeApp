@@ -3,7 +3,6 @@ package ch.fhnw.oop;
 
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -11,11 +10,13 @@ public class AppStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		MountainsPM model = new MountainsPM();
+		MountainsForm form = new MountainsForm(model);
 
-		Parent rootPanel = new ApplicationUI(model);
+		//Parent rootPanel = new ApplicationUI(model);
 
-		Scene scene = new Scene(rootPanel);
+		Scene scene = new Scene(form);
 
 		primaryStage.titleProperty().bind(model.applicationTitleProperty());
 		primaryStage.setScene(scene);

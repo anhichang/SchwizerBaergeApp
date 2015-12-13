@@ -21,12 +21,11 @@ import java.util.stream.Stream;
  */
 public class MountainsPM {
 
-    private final StringProperty greeting         = new SimpleStringProperty("Speichere");//aus PresentationModel eingefügt
-
     public static final String FILE_NAME = "mountains.csv";
 
     private static final String SEMICOLON = ";";
 
+    private final StringProperty greeting = new SimpleStringProperty("Speichere");                      //aus PresentationModel eingefügt
     private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
 
     private ObservableList<Mountains> mountains = FXCollections.observableArrayList();
@@ -95,7 +94,7 @@ public class MountainsPM {
         return mountains;
     }
 
-    public StringProperty greetingProperty() {   //aus PresentationModel eingefügt
+    public StringProperty greetingProperty() {                                               //aus PresentationModel eingefügt
         return greeting;
     }
 
