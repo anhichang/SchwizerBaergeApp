@@ -26,4 +26,24 @@ public class MountainsPMTest extends TestCase {
         assertEquals("Zumsteinspitze", mountains.get(mountains.size()-1).getBergName());
 
     }
+
+    @Test
+    public void testSave() throws Exception {
+        sut.getResultate().get(0).setBergName("Test");
+        sut.save();
+
+        MountainsPM secondPM = new MountainsPM();
+
+        //then
+        assertEquals(sut.getResultate().size(), secondPM.getResultate().size());
+        assertEquals("Test", secondPM.getResultate().get(0).getBergName());
+
+        for(int i=0; i<sut.getResultate().size(); i++){
+            assertEquals(sut.getResultate().get(i), secondPM.getResultate().get(i));
+        }
+
+        //after
+        sut.getResultate().get(0).setBergName("Albis, Bürglen");
+        sut.save();
+    }
 }
