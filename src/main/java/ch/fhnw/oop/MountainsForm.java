@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
 
     private final MountainsPM mountain;
-    private GridPane grid;
+    private GridPane  grid;
     private Label     name;
     private TextField nameTextField;
     private Label     dominanz;
