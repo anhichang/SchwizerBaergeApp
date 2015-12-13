@@ -21,6 +21,8 @@ import java.util.stream.Stream;
  */
 public class MountainsPM {
 
+    private final StringProperty greeting         = new SimpleStringProperty("Speichere");//aus PresentationModel eingefügt
+
     public static final String FILE_NAME = "mountains.csv";
 
     private static final String TAB = "\\t";
@@ -87,6 +89,10 @@ public class MountainsPM {
 
     public ObservableList<Mountains> getResultate() {
         return mountains;
+    }
+
+    public StringProperty greetingProperty() {   //aus PresentationModel eingefügt
+        return greeting;
     }
 
 }

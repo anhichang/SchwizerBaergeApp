@@ -7,7 +7,7 @@ import javafx.scene.layout.StackPane;
 
 
 public class ApplicationUI extends StackPane {
-	private final MountainsPMgi model;
+	private final MountainsPM model;
 	private MountainsForm mountainsForm;
 	private Button button;
 
@@ -20,7 +20,7 @@ public class ApplicationUI extends StackPane {
 		addBindings();
 	}
 
-	public MountainsPM getPresentations Model() {
+	public MountainsPM getPresentationsModel() {
 		return model;
 	}
 	private void initializeControls() {

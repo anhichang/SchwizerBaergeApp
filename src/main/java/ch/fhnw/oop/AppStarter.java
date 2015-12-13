@@ -1,7 +1,7 @@
 
 package ch.fhnw.oop;
 
-import ch.fhnw.oop.PM.PresentationModel;
+import ch.fhnw.oop.PM.MountainsPM;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +11,7 @@ public class AppStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		PresentationModel model = new PresentationModel();
+		MountainsPM model = new MountainsPM();
 
 		Parent rootPanel = new ApplicationUI(model);
 
