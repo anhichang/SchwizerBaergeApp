@@ -1,11 +1,6 @@
-/*package ch.fhnw.oop;
+package ch.fhnw.oop;
 
-import ch.fhnw.oop.PM.MountainsPM;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-
-
-public class ApplicationUI extends StackPane {
+/*public class ApplicationUI extends StackPane {
 	private final MountainsPM model;
 	private MountainsForm mountainsForm;
 	private Button button;
@@ -40,5 +35,42 @@ public class ApplicationUI extends StackPane {
 	private void addBindings() {
 		button.textProperty().bind(model.greetingProperty());
 	}
+}
+*/
+
+/*                      //#5
+
+import ch.fhnw.oop.PM.Mountains;
+import ch.fhnw.oop.PM.MountainsPM;
+import javafx.scene.layout.BorderPane;
+
+public class ApplicationUI extends BorderPane implements ViewMixin<MountainsPM> {
+    private final EuropePM model;
+
+    private Mountains mountains;
+    private SelectorBar   toolbar;
+
+    public ApplicationUI(EuropePM model) {
+        this.model = model;
+        init();
+    }
+
+    @Override
+    public MountainsPM getPresentationModel() {
+        return model;
+    }
+
+    @Override
+    public void initializeControls() {
+        countryForm = new CountryForm(model);
+        toolbar     = new SelectorBar(model);
+    }
+
+    @Override
+    public void layoutControls() {
+        setTop(toolbar);
+        setCenter(countryForm);
+    }
+
 }
 */

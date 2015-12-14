@@ -114,7 +114,7 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
     @Override
     public void layoutControls() {
         ColumnConstraints grow = new ColumnConstraints();
-        //grow.setHgrow(Priority.ALWAYS);
+        //grow.setHgrow(Priority.ALWAYS);                              //Zeilen werden der Grösse des Fensters angepasst #2
         getColumnConstraints().addAll(new ColumnConstraints(), grow);
 
         add(scenetitle, 0, 0, 2, 1);
@@ -127,26 +127,24 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
         add(actiontarget, 1, 9);
     }
 
-    //im Unterricht
-
-    /*@Override
+    @Override
     public void addValueChangedListeners(){
-        europe.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
-            CountryPM oldSelection = europe.getCountry((int) oldValue);
-            CountryPM newSelection = europe.getCountry((int) newValue);
+        mountain.selectedMountainIdProperty().addListener((observable, oldValue, newValue) -> {
+            MountainsPM oldSelection = mountain.getBergId((int) oldValue);
+            MountainsPM newSelection = mountain.getBergId((int) newValue);
 
             if(oldSelection != null){
-                idField.textProperty().unbind();
-                nameField.textProperty().unbindBidirectional(oldSelection.nameProperty());
+                //idField.textProperty().unbind();
+                nameTextField.textProperty().unbindBidirectional(oldSelection.bergNameProperty());
 
             }
 
             if(newSelection != null){
-                idField.textProperty().bind(newSelection.idProperty().asString());
-                nameField.textProperty().bindBidirectional(newSelection.nameProperty());
+                //idField.textProperty().bind(newSelection.idProperty().asString());
+                nameTextField.textProperty().bindBidirectional(newSelection.bergNameProperty());
             }
         });
-    }*/
+    }
 
 
 

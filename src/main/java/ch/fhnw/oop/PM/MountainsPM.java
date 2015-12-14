@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,7 +30,7 @@ public class MountainsPM {
 
     private final StringProperty greeting = new SimpleStringProperty("Speichere");
     private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
-    private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(0);                     //new #1
+    private final IntegerProperty selectedMountainId = new SimpleIntegerProperty(0);                     //new #1
 
     private ObservableList<Mountains> mountains = FXCollections.observableArrayList();
 
@@ -101,4 +102,23 @@ public class MountainsPM {
         return greeting;
     }
 
+
+    public IntegerProperty selectedMountainIdProperty() {    // versuch die mountains anzuzeigen #3
+        return selectedMountainId;
+    }
+
+    public int getSelectedMountainId() {
+        return selectedMountainId.get();
+    }
+
+    public void setSelectedMountainId(int selectedCountryId) {
+        this.selectedMountainId.set(selectedCountryId);
+    }
+
+    public Mountains getBergId(int id) {                           //holt die BergNr. in der Klasse Mountains und ruft die Methode "hashCode auf die den int wert
+        Optional<Mountains> pmOptional = mountains.stream()         //des Bergs zurückgibt. #4
+                .filter(Mountains -> Mountains.hashCode() == id)
+                .findAny();
+        return pmOptional.isPresent() ? pmOptional.get() : null;
+    }
 }
