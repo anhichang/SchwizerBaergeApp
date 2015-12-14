@@ -22,8 +22,8 @@ public interface ViewIt<T> {
     default void addEventHandlers() {
     }
 
-    /*default void addValueChangedListeners() {
-    }*/
+    default void addValueChangedListeners() {
+    }
 
     default void addBindings() {
     }

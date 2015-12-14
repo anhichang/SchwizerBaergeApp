@@ -1,6 +1,7 @@
 package ch.fhnw.oop;
 
 
+import ch.fhnw.oop.PM.Mountains;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -127,21 +128,40 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
         add(actiontarget, 1, 9);
     }
 
-    @Override
+    @Override                                                                   //Aenderung #6
     public void addValueChangedListeners(){
         mountain.selectedMountainIdProperty().addListener((observable, oldValue, newValue) -> {
-            MountainsPM oldSelection = mountain.getBergId((int) oldValue);
-            MountainsPM newSelection = mountain.getBergId((int) newValue);
+            Mountains oldSelection = mountain.getBergId((int) oldValue);
+            Mountains newSelection = mountain.getBergId((int) newValue);
 
             if(oldSelection != null){
                 //idField.textProperty().unbind();
                 nameTextField.textProperty().unbindBidirectional(oldSelection.bergNameProperty());
+                dominanzTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzProperty());
+                kmTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzGipfelProperty());
+                typeTextField.textProperty().unbindBidirectional(oldSelection.bergGipfelArtProperty());
+                kantonTextField.textProperty().unbindBidirectional(oldSelection.bergKantoneProperty());
+                höheTextField.textProperty().unbindBidirectional(oldSelection.bergHoeheProperty());
+                schartenTextField.textProperty().unbindBidirectional(oldSelection.bergSchartenGipfelProperty());
+                mbisTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzGipfelProperty());
+                regionTextField.textProperty().unbindBidirectional(oldSelection.bergRegionProperty());
+                gebietTextField.textProperty().unbindBidirectional(oldSelection.bergGebietProperty());
+               // unterschriftTextField.textProperty().unbindBidirectional(oldSelection.berg);
 
             }
 
             if(newSelection != null){
                 //idField.textProperty().bind(newSelection.idProperty().asString());
                 nameTextField.textProperty().bindBidirectional(newSelection.bergNameProperty());
+                dominanzTextField.textProperty().unbindBidirectional(newSelection.bergDominanzProperty());
+                kmTextField.textProperty().unbindBidirectional(newSelection.bergDominanzGipfelProperty());
+                typeTextField.textProperty().unbindBidirectional(newSelection.bergGipfelArtProperty());
+                kantonTextField.textProperty().unbindBidirectional(newSelection.bergKantoneProperty());
+                höheTextField.textProperty().unbindBidirectional(newSelection.bergHoeheProperty());
+                schartenTextField.textProperty().unbindBidirectional(newSelection.bergSchartenGipfelProperty());
+                mbisTextField.textProperty().unbindBidirectional(newSelection.bergDominanzGipfelProperty());
+                regionTextField.textProperty().unbindBidirectional(newSelection.bergRegionProperty());
+                gebietTextField.textProperty().unbindBidirectional(newSelection.bergGebietProperty());
             }
         });
     }

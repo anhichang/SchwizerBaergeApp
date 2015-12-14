@@ -121,4 +121,7 @@ public class MountainsPM {
                 .findAny();
         return pmOptional.isPresent() ? pmOptional.get() : null;
     }
+    public ObservableList<Mountains> getAllMountains(){   //für den Slider max value  #7
+        return mountains;
+    }
 }

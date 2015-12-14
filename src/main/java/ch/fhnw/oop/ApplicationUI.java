@@ -38,19 +38,18 @@ package ch.fhnw.oop;
 }
 */
 
-/*                      //#5
+                      // #5
 
-import ch.fhnw.oop.PM.Mountains;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.scene.layout.BorderPane;
 
-public class ApplicationUI extends BorderPane implements ViewMixin<MountainsPM> {
-    private final EuropePM model;
+public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
+    private final MountainsPM model;
 
-    private Mountains mountains;
+    private MountainsForm mountainsForm;
     private SelectorBar   toolbar;
 
-    public ApplicationUI(EuropePM model) {
+    public ApplicationUI(MountainsPM model) {
         this.model = model;
         init();
     }
@@ -62,15 +61,14 @@ public class ApplicationUI extends BorderPane implements ViewMixin<MountainsPM> 
 
     @Override
     public void initializeControls() {
-        countryForm = new CountryForm(model);
+        mountainsForm = new MountainsForm(model);
         toolbar     = new SelectorBar(model);
     }
 
     @Override
     public void layoutControls() {
         setTop(toolbar);
-        setCenter(countryForm);
+        setCenter(mountainsForm);
     }
 
 }
-*/
