@@ -1,7 +1,6 @@
-package ch.fhnw.oop;
+/*package ch.fhnw.oop;
 
 import ch.fhnw.oop.PM.MountainsPM;
-import ch.fhnw.oop.PM.PresentationModel;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
@@ -42,3 +41,4 @@ public class ApplicationUI extends StackPane {
 		button.textProperty().bind(model.greetingProperty());
 	}
 }
+*/

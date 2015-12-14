@@ -1,4 +1,4 @@
-
+/*
 package ch.fhnw.oop.PM;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -6,6 +6,7 @@ import javafx.beans.property.StringProperty;
 /**
  * @author Dieter Holz
  */
+/*
 public class PresentationModel {
 	private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
 	private final StringProperty greeting         = new SimpleStringProperty("Speichere");
@@ -34,3 +35,4 @@ public class PresentationModel {
 		this.greeting.set(greeting);
 	}
 }
+*/

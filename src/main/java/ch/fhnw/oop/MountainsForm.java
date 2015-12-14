@@ -2,12 +2,16 @@ package ch.fhnw.oop;
 
 
 import ch.fhnw.oop.PM.MountainsPM;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
 
@@ -17,7 +21,7 @@ import javafx.scene.text.Text;
 public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
 
     private final MountainsPM mountain;
-
+    private GridPane  grid;
     private Label     name;
     private TextField nameTextField;
     private Label     dominanz;
@@ -40,6 +44,9 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
     private TextField gebietTextField;
     private Label     unterschrift;
     private TextField unterschriftTextField;
+    private Button btn;
+    private  Text actiontarget;
+    private Text scenetitle;
 
 
     public MountainsForm(MountainsPM mountain) {
@@ -55,15 +62,13 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
 
     @Override
     public void initializeControls() {
-        GridPane grid = new GridPane();
+        grid = new GridPane();
         grid.setAlignment(Pos.BOTTOM_CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 100, 25, 25));
 
-        Text scenetitle = new Text("Alphubel");
-
-        grid.add(scenetitle, 0, 0, 2, 1);
+        scenetitle = new Text("Mountains");
 
         name = new Label("Name:");
         dominanz = new Label("Dominanz:");
@@ -88,6 +93,23 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
         regionTextField = new TextField();
         gebietTextField = new TextField();
         unterschriftTextField = new TextField();
+
+        btn = new Button("Save");
+        HBox hbBtn = new HBox(10);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.getChildren().add(btn);
+        add(hbBtn, 3, 7);
+
+        actiontarget = new Text();
+
+
+        btn.setOnAction(new EventHandler<ActionEvent>() {         //anzeigen der Statusmeldung
+
+            @Override
+            public void handle(ActionEvent e) {
+                actiontarget.setText("Änderungen gespeichert");
+            }
+        });
     }
 
     @Override
@@ -96,12 +118,14 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
         grow.setHgrow(Priority.ALWAYS);
         getColumnConstraints().addAll(new ColumnConstraints(), grow);
 
+        add(scenetitle, 0, 0, 2, 1);
         addRow(1, name, nameTextField, höhe, höheTextField);
         addRow(2, dominanz, dominanzTextField, scharten, schartenTextField);
         addRow(3, km, kmTextField, mbis, mbisTextField);
         addRow(4, type, typeTextField, region, regionTextField);
         addRow(5, kanton, kantonTextField, gebiet, gebietTextField);
         addRow(6, unterschrift, unterschriftTextField);
+        add(actiontarget, 1, 9);
     }
     //im Unterricht
 

@@ -1,3 +1,12 @@
+.form {
+    -fx-background-color: linear-gradient(#bfd3e8 0%, #a8c2de 25%, #90b0d5 100%);
+    -fx-padding: 40 20 30 20;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    /*-fx-effect: innershadow(two-pass-box, black, 10, 0, 0, 0);*/
+
+}
+
 .button {
     -fx-background-color: darkgray;
     -fx-text-fill: white;
@@ -5,18 +14,18 @@
     -fx-font-size: 12px;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    /*-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );*/
 }
 
 .button:hover {
     -fx-background-color: linear-gradient(#2A5058, #61a2b1);
 }
 
-.button:armed {
+/*.button:armed {
     -fx-scale-x: 1.0;
     -fx-scale-y: 1.0;
     -fx-background-color: gray;
-}
+}*/
 .root {
     -fx-background-image: url("background.png");
 }
