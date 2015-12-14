@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
 
 /**
@@ -115,7 +114,7 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
     @Override
     public void layoutControls() {
         ColumnConstraints grow = new ColumnConstraints();
-        grow.setHgrow(Priority.ALWAYS);
+        //grow.setHgrow(Priority.ALWAYS);
         getColumnConstraints().addAll(new ColumnConstraints(), grow);
 
         add(scenetitle, 0, 0, 2, 1);
@@ -127,6 +126,7 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
         addRow(6, unterschrift, unterschriftTextField);
         add(actiontarget, 1, 9);
     }
+
     //im Unterricht
 
     /*@Override

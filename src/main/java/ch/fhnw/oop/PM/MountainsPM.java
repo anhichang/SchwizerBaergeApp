@@ -1,5 +1,7 @@
 package ch.fhnw.oop.PM;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -25,8 +27,9 @@ public class MountainsPM {
 
     private static final String SEMICOLON = ";";
 
-    private final StringProperty greeting = new SimpleStringProperty("Speichere");                      //aus PresentationModel eingefügt
+    private final StringProperty greeting = new SimpleStringProperty("Speichere");
     private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
+    private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(0);                     //new #1
 
     private ObservableList<Mountains> mountains = FXCollections.observableArrayList();
 
@@ -55,7 +58,7 @@ public class MountainsPM {
     private List<Mountains> readFromFile() {
         try(Stream<String> stream = getStreamOfLines(FILE_NAME)){
             return stream.skip(1)
-                    .map(s -> new Mountains(s.split("\t"))).collect(Collectors.toList());
+                    .map(s -> new Mountains(s.split(SEMICOLON))).collect(Collectors.toList());
         }
     }
 
