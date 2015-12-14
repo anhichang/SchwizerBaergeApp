@@ -51,11 +51,13 @@ public class MountainsPM {
         }
     }
 
+    public void delete(int i){
+        mountains.remove(i);
+    }
 
     private List<Mountains> readFromFile() {
         try(Stream<String> stream = getStreamOfLines(FILE_NAME)){
-            return stream.skip(1)
-                    .map(s -> new Mountains(s.split("\t"))).collect(Collectors.toList());
+            return stream.skip(1).map(s -> new Mountains(s.split("\t"))).collect(Collectors.toList());
         }
     }
 

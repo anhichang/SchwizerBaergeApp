@@ -46,4 +46,11 @@ public class MountainsPMTest extends TestCase {
         sut.getResultate().get(0).setBergName("Albis, Bürglen");
         sut.save();
     }
+
+
+    @Test
+    public void testDelete() throws Exception{
+        sut.delete(1);
+        assertEquals("Aletschorn", sut.getResultate().get(1).getBergName());
+    }
 }
