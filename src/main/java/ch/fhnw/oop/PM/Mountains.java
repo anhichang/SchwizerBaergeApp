@@ -58,7 +58,7 @@ public class Mountains {
     }
 
     public String infoAsLine(){
-        return String.join("\t",
+        return String.join(";",
                 getBergNr(),
                 getBergName(),
                 Float.toString(getBergHoehe()),
