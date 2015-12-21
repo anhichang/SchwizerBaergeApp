@@ -51,6 +51,12 @@ public class MountainsPM {
         }
     }
 
+    public void add(Mountains mountains1){
+        
+        mountains.add(mountains1);
+
+    }
+
     public void delete(int i){
         mountains.remove(i);
     }

@@ -38,6 +38,9 @@ public class Mountains {
         setBildunterschrift(line[11]);
     }
 
+    public Mountains(String s, String s1, String s2, String hauptgipfel, String mittelland, String s3, String albiskette, String s4, String wilerberg, String s5, String s6, String s7) {
+    }
+
     @Override
     public boolean equals(Object o){
         if (this == o) {
