@@ -164,7 +164,7 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
                 mbisTextField.textProperty().bindBidirectional(newSelection.bergSchartenGipfelProperty());
                 regionTextField.textProperty().bindBidirectional(newSelection.bergRegionProperty());
                 gebietTextField.textProperty().bindBidirectional(newSelection.bergGebietProperty());
-                unterschriftTextField.textProperty().bindBidirectional(oldSelection.bildunterschriftProperty());
+                unterschriftTextField.textProperty().bindBidirectional(newSelection.bildunterschriftProperty());
             }
         });
     }

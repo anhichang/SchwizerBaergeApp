@@ -11,7 +11,7 @@ public interface ViewIt<T> {
         initializeControls();
         layoutControls();
         addEventHandlers();
-        //addValueChangedListeners();
+        addValueChangedListeners();
         addBindings();
     }
 

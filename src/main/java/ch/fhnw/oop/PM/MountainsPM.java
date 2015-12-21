@@ -117,7 +117,7 @@ public class MountainsPM {
 
     public Mountains getBergId(int id) {                           //holt die BergNr. in der Klasse Mountains und ruft die Methode "hashCode auf die den int wert
         Optional<Mountains> pmOptional = mountains.stream()         //des Bergs zurückgibt. #4
-                .filter(Mountains -> Mountains.hashCode() == id)
+                .filter(Mountains -> Mountains.getBergNr().equals(Integer.toString(id)))
                 .findAny();
         return pmOptional.isPresent() ? pmOptional.get() : null;
     }
