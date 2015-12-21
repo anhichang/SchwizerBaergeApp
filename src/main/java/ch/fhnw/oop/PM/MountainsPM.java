@@ -109,7 +109,7 @@ public class MountainsPM {
 
     public int getSelectedMountainId() {
         return selectedMountainId.get();
-    }
+    }//wesswegen wird die methode nie aufgerufen ?? da muss der Fehler liegen....
 
     public void setSelectedMountainId(int selectedCountryId) {
         this.selectedMountainId.set(selectedCountryId);

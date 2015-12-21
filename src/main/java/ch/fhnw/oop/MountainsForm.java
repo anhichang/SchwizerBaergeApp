@@ -135,33 +135,34 @@ public class MountainsForm extends GridPane implements ViewIt<MountainsPM>{
             Mountains newSelection = mountain.getBergId((int) newValue);
 
             if(oldSelection != null){
-                //idField.textProperty().unbind();
-                nameTextField.textProperty().unbindBidirectional(oldSelection.getBergName()); //mit getter versuchen und die hinteren propertys ersetzen
-                dominanzTextField.textProperty().unbindBidirectional(oldSelection.getBergDominanz());
-                kmTextField.textProperty().unbindBidirectional(oldSelection.getBergDominanzGipfel());
-                typeTextField.textProperty().unbindBidirectional(oldSelection.getBergGipfelArt());
-                kantonTextField.textProperty().unbindBidirectional(oldSelection.getBergKantone());
-                höheTextField.textProperty().unbindBidirectional(oldSelection.getBergHoehe());
+
+                nameTextField.textProperty().unbindBidirectional(oldSelection.bergNameProperty()); //mit getter versuchen und die hinteren propertys ersetzen
+                dominanzTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzProperty());
+                kmTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzGipfelProperty());
+                typeTextField.textProperty().unbindBidirectional(oldSelection.bergGipfelArtProperty());
+                kantonTextField.textProperty().unbindBidirectional(oldSelection.bergKantoneProperty());
+                höheTextField.textProperty().unbindBidirectional(oldSelection.bergHoeheProperty());
                 schartenTextField.textProperty().unbindBidirectional(oldSelection.bergSchartenGipfelProperty());
                 mbisTextField.textProperty().unbindBidirectional(oldSelection.bergDominanzGipfelProperty());
                 regionTextField.textProperty().unbindBidirectional(oldSelection.bergRegionProperty());
                 gebietTextField.textProperty().unbindBidirectional(oldSelection.bergGebietProperty());
-               // unterschriftTextField.textProperty().unbindBidirectional(oldSelection.berg);
+                unterschriftTextField.textProperty().unbindBidirectional(oldSelection.bildunterschriftProperty());
 
             }
 
             if(newSelection != null){
-                //idField.textProperty().bind(newSelection.idProperty().asString());
-                //nameTextField.textProperty().bindBidirectional(newSelection.getBergName());
-                dominanzTextField.textProperty().unbindBidirectional(newSelection.getBergDominanz());
-                kmTextField.textProperty().unbindBidirectional(newSelection.getBergDominanz());
-                typeTextField.textProperty().unbindBidirectional(newSelection.getBergGipfelArt());
-                kantonTextField.textProperty().unbindBidirectional(newSelection.getBergKantone());
-                höheTextField.textProperty().unbindBidirectional(newSelection.getBergHoehe());
-                schartenTextField.textProperty().unbindBidirectional(newSelection.getBergSchartenGipfel());
-                mbisTextField.textProperty().unbindBidirectional(newSelection.getBergDominanzGipfel());
-                regionTextField.textProperty().unbindBidirectional(newSelection.getBergRegion());
-                gebietTextField.textProperty().unbindBidirectional(newSelection.getBergGebiet());
+
+                nameTextField.textProperty().bindBidirectional(newSelection.bergNameProperty());
+                dominanzTextField.textProperty().unbindBidirectional(newSelection.bergDominanzProperty());
+                kmTextField.textProperty().unbindBidirectional(newSelection.bergDominanzGipfelProperty());
+                typeTextField.textProperty().unbindBidirectional(newSelection.bergGipfelArtProperty());
+                kantonTextField.textProperty().unbindBidirectional(newSelection.bergKantoneProperty());
+                höheTextField.textProperty().unbindBidirectional(newSelection.bergHoeheProperty());
+                schartenTextField.textProperty().unbindBidirectional(newSelection.bergScharteProperty());
+                mbisTextField.textProperty().unbindBidirectional(newSelection.bergSchartenGipfelProperty());
+                regionTextField.textProperty().unbindBidirectional(newSelection.bergRegionProperty());
+                gebietTextField.textProperty().unbindBidirectional(newSelection.bergGebietProperty());
+                unterschriftTextField.textProperty().unbindBidirectional(oldSelection.bildunterschriftProperty());
             }
         });
     }
