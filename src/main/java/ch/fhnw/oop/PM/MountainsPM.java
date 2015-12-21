@@ -36,7 +36,7 @@ public class MountainsPM {
 
     public void save() {
         try (BufferedWriter writer = Files.newBufferedWriter(getPath(FILE_NAME, true))) {
-            writer.write("bergNr\tBergName\tbergHoehe\tbergGipfelArt\tbergGebiet\tbergKantone\tbergRegion\tbergDominanz\tbergDominanzGipfel\tbergScharte\tbergSchartenGipfel\tBildunterschrift");
+            writer.write("bergNr;BergName;bergHoehe;bergGipfelArt;bergGebiet;bergKantone;bergRegion;bergDominanz;bergDominanzGipfel;bergScharte;bergSchartenGipfel;Bildunterschrift");
             writer.newLine();
             mountains.stream().forEach(resultat -> {
                 try {

@@ -47,10 +47,9 @@ public class MountainsPMTest extends TestCase {
         sut.save();
     }
 
-
     @Test
     public void testDelete() throws Exception{
-        sut.delete(1);
-        assertEquals("Aletschorn", sut.getResultate().get(1).getBergName());
+        sut.delete(0);
+        assertEquals("Allalinhorn", sut.getResultate().get(0).getBergName());
     }
 }
