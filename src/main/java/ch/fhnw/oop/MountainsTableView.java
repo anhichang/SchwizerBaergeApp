@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by scatman on 21.12.15.
  */
-public class MountainsTableView extends VBox{
+public class MountainsTableView extends VBox {
 
 
     private final MountainsPM model;
@@ -46,7 +46,7 @@ public class MountainsTableView extends VBox{
         TableColumn<Mountains, String> bergHöhe2      = new TableColumn<>("Höhe2");
 
         bergId.setCellValueFactory(cell -> cell.getValue().bergNrProperty());
-        bergCol.setCellValueFactory(cell -> cell.getValue().kürzelProperty());
+        bergCol.setCellValueFactory(cell -> cell.getValue().kürzelProperty());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         bergKanton.setCellValueFactory(cell -> cell.getValue().bergNameProperty());
         bergHöhe.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty());
         bergHöhe2.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty().asString("%.2f %%"));
@@ -58,7 +58,7 @@ public class MountainsTableView extends VBox{
 
         bergId.setMinWidth(200);
 
-        tableView.getColumns().addAll(bergId, bergKanton, bergHöhe, bergHöhe2);
+        tableView.getColumns().addAll(bergId, bergKanton, bergHöhe, bergHöhe2);//Variable übergeben von Kanton
 
         return tableView;
     }
@@ -69,15 +69,24 @@ public class MountainsTableView extends VBox{
         getChildren().addAll(tabelle, anzahlBerge);
     }
 
+    public void select(){
+        getSelectionModel().selectionItemProperty().addListener(
+
+        )
+    }
+
     private void addEventHandlers() {
     }
 
     private void addValueChangedListeners() {
+
     }
 
     public void addBindings() {
         anzahlBerge.textProperty()
                 .bind(Bindings.size(model.getResultate()).asString("Berg %d Region"));
+        //tabelle.selectionModelProperty().bindBidirectional(model.selectedMountainIdProperty());
+        //Bindings.bindBidirectional(inputField.textProperty(),model.selectedMountainIdProperty(), new NumberStringConverter());
 
     }
 
