@@ -111,8 +111,8 @@ public class MountainsPM {
         return selectedMountainId.get();
     }
 
-    public void setSelectedMountainId(int selectedCountryId) {
-        this.selectedMountainId.set(selectedCountryId);
+    public void setSelectedMountainId(int selectedBergId) {
+        this.selectedMountainId.set(selectedBergId);
     }
 
     public Mountains getBergId(int id) {                           //holt die BergNr. in der Klasse Mountains und ruft die Methode "hashCode auf die den int wert

@@ -71,8 +71,15 @@ public class MountainsTableView extends VBox {
 
     public void select(){
         getSelectionModel().selectionItemProperty().addListener(
+                (observable, oldselection, newSelection)-> {
+                    try {
+                        model.setSelectedMountainId(newSelection.getBergId());
+                    } catch (NullPointerException e) {
 
-        )
+                    }
+                }
+
+        );
     }
 
     private void addEventHandlers() {
