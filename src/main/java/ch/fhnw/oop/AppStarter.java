@@ -1,7 +1,6 @@
 
 package ch.fhnw.oop;
 
-import ch.fhnw.oop.PM.KantonePM;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -33,9 +32,8 @@ public class AppStarter extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		MountainsPM model = new MountainsPM();
-		KantonePM kantoneModel = new KantonePM();			//neu
 
-		Parent rootPanel = new ApplicationUI(model, kantoneModel);  //neu
+		Parent rootPanel = new ApplicationUI(model);
 
 		Scene scene = new Scene(rootPanel);
 

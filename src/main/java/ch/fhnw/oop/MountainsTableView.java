@@ -1,7 +1,6 @@
 package ch.fhnw.oop;
 
 import ch.fhnw.oop.PM.Kantone;
-import ch.fhnw.oop.PM.KantonePM;
 import ch.fhnw.oop.PM.Mountains;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.beans.binding.Bindings;
@@ -17,18 +16,14 @@ import javafx.scene.layout.VBox;
 public class MountainsTableView extends VBox {
 
 
-    private final MountainsPM model;                //neu
-    private final KantonePM kantoneModel;           //neu
+    private final MountainsPM model;
 
     private TableView<Mountains> tabelle;
-    private TableView<Kantone> kantone;
     private Label anzahlBerge;
 
 
-    public MountainsTableView(MountainsPM model, KantonePM kantoneModel) {  //neu
-
+    public MountainsTableView(MountainsPM model) {
         this.model = model;
-        this.kantoneModel = kantoneModel;                                   //neu
         initializeControls();
         layoutControls();
         addEventHandlers();
@@ -41,26 +36,17 @@ public class MountainsTableView extends VBox {
         anzahlBerge = new Label();
     }
 
-   /* private TableView<Kantone> initializeResultatWappen()  {                            //neu
-        TableView<Kantone> viewFürWappen = new TableView<>(kantoneModel.getResulate());
-
-        TableColumn<Kantone, String> bergCol          = new TableColumn<>("");
-        bergCol.setCellValueFactory(cell -> cell.getValue().kürzelProperty());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        bergCol.setCellFactory(param -> new MountainsTableCell());
-        return viewFürWappen;
-    }*/
-
     private TableView<Mountains> initializeResultatTabelle() {
         TableView<Mountains> tableView = new TableView<>(model.getResultate());
 
         TableColumn<Mountains, String> bergId         = new TableColumn<>("Id");
-        //TableColumn<Kantone, String> bergCol          = new TableColumn<>("");
+        TableColumn<Kantone, String> bergCol          = new TableColumn<>("");
         TableColumn<Mountains, String> bergKanton     = new TableColumn<>("Kanton");
         TableColumn<Mountains, Number> bergHöhe       = new TableColumn<>("Höhe");
         TableColumn<Mountains, String> bergHöhe2      = new TableColumn<>("Höhe2");
 
         bergId.setCellValueFactory(cell -> cell.getValue().bergNrProperty());
-        //bergCol.setCellValueFactory(cell -> cell.getValue().kürzelProperty());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        bergCol.setCellValueFactory(cell -> cell.getValue().kürzelProperty());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         bergKanton.setCellValueFactory(cell -> cell.getValue().bergNameProperty());
         bergHöhe.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty());
         bergHöhe2.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty().asString("%.2f %%"));
@@ -68,11 +54,11 @@ public class MountainsTableView extends VBox {
         bergHöhe2.setComparator((o1, o2) -> Float.valueOf(o1.substring(0, o1.length() - 2))
                 .compareTo(Float.valueOf(o2.substring(0, o2.length() - 2))));
 
-        //bergCol.setCellFactory(param -> new MountainsTableCell());
+        bergCol.setCellFactory(param -> new MountainsTableCell());
 
         bergId.setMinWidth(200);
 
-        tableView.getColumns().addAll(bergId, bergKanton, bergHöhe, bergHöhe2);//Variable übergeben von Kanton (bergCol)
+        tableView.getColumns().addAll(bergId, bergKanton, bergHöhe, bergHöhe2);//Variable übergeben von Kanton
 
         return tableView;
     }

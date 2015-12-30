@@ -40,21 +40,18 @@ package ch.fhnw.oop;
 
                       // #5
 
-import ch.fhnw.oop.PM.KantonePM;
 import ch.fhnw.oop.PM.MountainsPM;
 import javafx.scene.layout.BorderPane;
 
 public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
     private final MountainsPM model;
-    private final KantonePM kantoneModel;                       //neu
 
     private MountainsForm mountainsForm;
     private MountainsTableView listView;
     private SelectorBar   toolbar;
 
-    public ApplicationUI(MountainsPM model, KantonePM kantoneModel) { //neu
+    public ApplicationUI(MountainsPM model) {
         this.model = model;
-        this.kantoneModel = kantoneModel;                               //neu
         init();
     }
 
@@ -66,7 +63,7 @@ public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
     @Override
     public void initializeControls() {
         mountainsForm = new MountainsForm(model);
-        listView = new MountainsTableView(model, kantoneModel);
+        listView = new MountainsTableView(model);
         toolbar     = new SelectorBar(model);
     }
 
