@@ -39,25 +39,23 @@ public class MountainsTableView extends VBox {
         TableView<Mountains> tableView = new TableView<>(model.getResultate());
 
         TableColumn<Mountains, String> bergId         = new TableColumn<>("Id");
-        TableColumn<Mountains, String> bergCol          = new TableColumn<>("");
-        TableColumn<Mountains, String> bergKanton     = new TableColumn<>("Kanton");
-        TableColumn<Mountains, Number> bergHöhe       = new TableColumn<>("Höhe");
-        TableColumn<Mountains, String> bergHöhe2      = new TableColumn<>("Höhe2");
+        TableColumn<Mountains, String> bergCol          = new TableColumn<>("Kanton");
+        TableColumn<Mountains, String> bergKanton     = new TableColumn<>("Name");
+        TableColumn<Mountains, Number> bergHöhe       = new TableColumn<>("Höhe [m]");
 
         bergId.setCellValueFactory(cell -> cell.getValue().bergNrProperty());
         bergCol.setCellValueFactory(cell -> cell.getValue().bergKantoneProperty());//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         bergKanton.setCellValueFactory(cell -> cell.getValue().bergNameProperty());
         bergHöhe.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty());
-        bergHöhe2.setCellValueFactory(cell -> cell.getValue().bergHoeheProperty().asString("%.2f %%"));
-
-        bergHöhe2.setComparator((o1, o2) -> Float.valueOf(o1.substring(0, o1.length() - 2))
-                .compareTo(Float.valueOf(o2.substring(0, o2.length() - 2))));
 
         bergCol.setCellFactory(param -> new MountainsTableCell());
 
-        bergId.setMinWidth(200);
+        bergId.setMinWidth(10);
+        bergCol.setMinWidth(5);
+        bergKanton.setMinWidth(130);
+        bergHöhe.setMinWidth(100);
 
-        tableView.getColumns().addAll(bergId, bergCol, bergKanton, bergHöhe, bergHöhe2);//Variable übergeben von Kanton
+        tableView.getColumns().addAll(bergId, bergKanton, bergHöhe, bergCol);//Variable übergeben von Kanton
 
         return tableView;
     }
