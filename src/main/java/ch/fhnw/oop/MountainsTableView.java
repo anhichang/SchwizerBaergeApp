@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by scatman on 21.12.15.
  */
-public class MountainsTableView extends VBox {
+public class MountainsTableView extends TableView {
 
 
     private final MountainsPM model;
@@ -28,6 +28,7 @@ public class MountainsTableView extends VBox {
         addEventHandlers();
         addValueChangedListeners();
         addBindings();
+        select();
     }
 
     public void initializeControls() {
@@ -68,11 +69,6 @@ public class MountainsTableView extends VBox {
         getChildren().addAll(tabelle, anzahlBerge);
     }
 
-    /*public void select(){
-        getSelectionModel().selectionItemProperty().addListener(
-
-        )
-    }*/
 
     private void addEventHandlers() {
     }
@@ -89,7 +85,20 @@ public class MountainsTableView extends VBox {
 
     }
 
+    public void select(){
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
 
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldSelection, newSelection) -> {
+                    try {
+                        model.setSelectedMountain(newSelection.getBergId());
+                    } catch (NullPointerException e) {
+
+                    }
+                });
+
+    }
 
 
 }

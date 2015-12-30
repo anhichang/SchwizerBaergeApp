@@ -1,9 +1,6 @@
 package ch.fhnw.oop.PM;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,6 +28,19 @@ public class MountainsPM {
     private final StringProperty greeting = new SimpleStringProperty("Speichere");
     private final StringProperty applicationTitle = new SimpleStringProperty("Schwizer Bärge App");
     private final IntegerProperty selectedMountainId = new SimpleIntegerProperty(0);                     //new #1
+    private final ObjectProperty<Mountains> selectedMountain = new SimpleObjectProperty<>();
+
+    public Mountains getSelectedMountain() {
+        return selectedMountain.get();
+    }
+
+    public ObjectProperty<Mountains> selectedMountainProperty() {
+        return selectedMountain;
+    }
+
+    public void setSelectedMountain(Mountains selectedMountain) {
+        this.selectedMountain.set(selectedMountain);
+    }
 
     private ObservableList<Mountains> mountains = FXCollections.observableArrayList();
 
