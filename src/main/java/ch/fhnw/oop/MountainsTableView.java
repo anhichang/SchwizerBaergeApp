@@ -28,6 +28,7 @@ public class MountainsTableView extends VBox {
         addEventHandlers();
         addValueChangedListeners();
         addBindings();
+        //select();
     }
 
     public void initializeControls() {
@@ -86,6 +87,20 @@ public class MountainsTableView extends VBox {
         //Bindings.bindBidirectional(inputField.textProperty(),model.selectedMountainIdProperty(), new NumberStringConverter());
 
     }
+  /*  public void select(){
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldSelection, newSelection) -> model.setSelectedMountain(newSelection));
+
+        getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldSelection, newSelection) -> {
+                    try {
+                        model.setSelectedMountain(newSelection.getBergId());
+                    } catch (NullPointerException e) {
+
+                    }
+                });
+
+    }*/
 
 
 
