@@ -41,6 +41,7 @@ package ch.fhnw.oop;
                       // #5
 
 import ch.fhnw.oop.PM.MountainsPM;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 
 public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
@@ -50,6 +51,7 @@ public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
     private MountainsTableView listView;
     private SelectorBar   toolbar;
     private MountainsHeader header;                             //new
+    private SplitPane sp;
 
     public ApplicationUI(MountainsPM model) {
         this.model = model;
@@ -65,16 +67,19 @@ public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
     public void initializeControls() {
         mountainsForm = new MountainsForm(model);
         listView = new MountainsTableView(model);
+        listView.setMinWidth(180);
+        listView.setMaxWidth(340);
         toolbar     = new SelectorBar(model);
         header = new MountainsHeader(model);            //new
+        sp = new SplitPane(listView, mountainsForm);
+        sp.setDividerPositions(0.35f, 0.65f);
     }
 
     @Override
     public void layoutControls() {
         setTop(header);
         setBottom(toolbar);
-        setCenter(mountainsForm);
-        setLeft(listView);
+        setCenter(sp);
     }
 
 }
