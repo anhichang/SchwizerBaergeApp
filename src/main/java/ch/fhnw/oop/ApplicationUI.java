@@ -49,6 +49,7 @@ public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
     private MountainsForm mountainsForm;
     private MountainsTableView listView;
     private SelectorBar   toolbar;
+    private MountainsHeader header;                             //new
 
     public ApplicationUI(MountainsPM model) {
         this.model = model;
@@ -65,11 +66,13 @@ public class ApplicationUI extends BorderPane implements ViewIt<MountainsPM> {
         mountainsForm = new MountainsForm(model);
         listView = new MountainsTableView(model);
         toolbar     = new SelectorBar(model);
+        header = new MountainsHeader(model);            //new
     }
 
     @Override
     public void layoutControls() {
-        setTop(toolbar);
+        setTop(header);
+        setBottom(toolbar);
         setCenter(mountainsForm);
         setLeft(listView);
     }

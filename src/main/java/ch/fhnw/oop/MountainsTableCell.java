@@ -1,6 +1,6 @@
 package ch.fhnw.oop;
 
-import ch.fhnw.oop.PM.Kantone;
+import ch.fhnw.oop.PM.Mountains;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TableCell;
@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Created by scatman on 21.12.15.
  */
-class MountainsTableCell extends TableCell<Kantone, String> {
+class MountainsTableCell extends TableCell<Mountains, String> {
     private static final Map<String, Image> WAPPEN = new HashMap<>();
 
     private static final Insets INSETS = new Insets(1, 8, 1, 5);

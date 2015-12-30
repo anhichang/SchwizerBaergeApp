@@ -7,19 +7,19 @@
 
 }
 
-.button {
+/*.button {
     -fx-background-color: darkgray;
     -fx-text-fill: white;
     -fx-background-radius: 5px;
     -fx-font-size: 12px;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
-    /*-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );*/
-}
+    /*-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}*/
 
-.button:hover {
+/*.button:hover {
     -fx-background-color: linear-gradient(#2A5058, #61a2b1);
-}
+}*/
 
 /*.button:armed {
     -fx-scale-x: 1.0;
@@ -51,6 +51,10 @@
     -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
+#save {
+    -fx-graphic: url('background.png');
+}
+
 
 
 
